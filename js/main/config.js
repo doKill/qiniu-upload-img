@@ -83,16 +83,18 @@ function uploadInit() {
             'UploadComplete': function() {
                 //队列文件处理完毕后,处理相关的事情
                 printLog('on UploadComplete');
-            }
+            },
             // Key 函数如果有需要自行配置，无特殊需要请注释
-            //,
-            // 'Key': function(up, file) {
-            //     // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
-            //     // 该配置必须要在 unique_names: false , save_key: false 时才生效
-            //     var key = "";
-            //     // do something with key here
-            //     return key
-            // }
+            'Key': function(up, file) {
+                // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
+                // 该配置必须要在 unique_names: false , save_key: false 时才生效
+                
+                //用时间戳作为上传文件的名字
+                var timestamp = new Date().getTime()
+                var key = timestamp;
+                // do something with key here
+                return key
+            }
         }
     });
 }
