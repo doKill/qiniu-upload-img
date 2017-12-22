@@ -7,7 +7,7 @@ var E = window.wangEditor,
 editor.customConfig.qiniu = true
 editor.create()
 
-var api = ['//192.168.15.128:8182/jydsApi/api/h5/v3/common/getToken']
+var api = ['/api/h5/v3/common/getToken']
 $.ajax({url:api[0],method:'post',success:function(data){
         // 从后端获取upload token
         var temp = data.data; 
